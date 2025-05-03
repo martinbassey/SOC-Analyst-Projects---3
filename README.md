@@ -112,7 +112,7 @@ As part of the process of developing my skills as a SOC Analyst in the field of 
 |--------------|-----------------------------|----------------------------------|
 | File Hash    | `0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74`  | Malicious attachment             |
 | IP Address   | `209.85.208.181`             | C2 server        |
-| Domain       | `mail-lj1-f181.google.com`       | C2            |
+| Domain       | `mail-lj1-f181.google.com`       | C2  server          |
 | File Path    | `29.328%24_Need_to_move_you_have_24_hours-11794.pdf`         | Malicious         |
 
 ---
@@ -125,7 +125,7 @@ As part of the process of developing my skills as a SOC Analyst in the field of 
 - ii) The adversary is trying to figure out your environment. Discovery consists of techniques an adversary may use to gain knowledge about the system and internal network. These techniques help adversaries observe the environment and orient themselves before deciding how to act. They also allow adversaries to explore what they can control and what’s around their entry point in order to discover how it could benefit their current objective. Native operating system tools are often used toward this post-compromise information-gathering objective. .
 
 - **Detection Coverage:**  
-  - VirusTotal detection at 46%, indicating some AV engines may miss this threat.
+  - VirusTotal detection; NOT FOUND.
 
 ---
 
@@ -140,20 +140,21 @@ As part of the process of developing my skills as a SOC Analyst in the field of 
 
 ## 7. Attachments
 
-- Hybrid Analysis full report [(https://www.hybrid-analysis.com/sample/5ab72dfe878fb1c79e1a3921f9cce65b547b8f4d614ff164b9100a04d07e2110)]  
-- VirusTotal report  [https://www.virustotal.com/gui/file/0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74/detection]  
+- ![Hybrid Analysis full report](https://www.hybrid-analysis.com/sample/5ab72dfe878fb1c79e1a3921f9cce65b547b8f4d614ff164b9100a04d07e2110)
+- ![VirusTotal report full report](https://www.virustotal.com/gui/file/0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74/detection)
 
 
 ---
 
 ## 8. References
 
-- [Phishing_pot](https://github.com/rf-peixoto/phishing_pot)  
-- [Hybrid Analysis](https://www.hybrid-analysis.com/)  
-- [VirusTotal](https://www.virustotal.com/)  
-- [Email-OIC-Extractor](https://github.com/MalwareCube/Email-IOC-Extractor/blob/main/eioc.py)
-- [PDFcrowd.com](https://pdfcrowd.com/)
+- ![Phishing_pot](https://github.com/rf-peixoto/phishing_pot)  
+- ![Hybrid Analysis](https://www.hybrid-analysis.com/)  
+- ![VirusTotal](https://www.virustotal.com/)  
+- ![Email-OIC-Extractor](https://github.com/MalwareCube/Email-IOC-Extractor/blob/main/eioc.py)
+- ![PDFcrowd.com](https://pdfcrowd.com/)
 
 ---
 
+## THANK YOU FOR REVIEWING MY PROJECT, PLEASE LET ME KNOW YOUR THOUGHTS!
 
