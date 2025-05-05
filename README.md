@@ -174,4 +174,4 @@ Screenshot:
 
 ## Thank You for Reviewing!
 
-*This project demonstrates the full workflow of malware attachment analysis and the importance of validating threat intelligence to avoid false positives.*
+*This project demonstrates my skills development in the full workflow of malware attachment analysis. This is learning journey for me, and I might not get everything right at this stage, but I welcome and appreciate your inputs with a great humility*
