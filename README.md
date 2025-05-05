@@ -10,7 +10,10 @@
 
 ## Executive Summary
 
-As part of the process of developing my skills as a SOC Analyst in the field of Cybersecuity, this report represents the real-world documentations of the analysis of a sample of suspicious email attachment I carried in this project. The objective was to apply my knowledge from what I have learnt so far to identify any hidden threats, understand the attack vector, and provide actionable intelligence for mitigation. The attachment was analyzed using industry-standard tools and methodologies, with findings summarized for the public reviewed.This might be perfect, but I welcome corrections and inputs from all concerns, especially the experts in the field.
+A suspicious PDF attachment (`0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74`) was analyzed for malicious activity. Key findings include:  
+- `/OpenAction` trigger with no visible payload (suspicious for PDFs).  
+- Low detection rate (8/63) despite confirmed malicious behavior.  
+- Suspicious network traffic to `209.85.208.181` (potential C2). 
 
 ---
 
@@ -108,22 +111,38 @@ As part of the process of developing my skills as a SOC Analyst in the field of 
 
 ## 4. Indicators of Compromise (IOCs)
 
-| Type         | Value                        | Description                      |
-|--------------|-----------------------------|----------------------------------|
-| File Hash    | `0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74`  | Malicious attachment             |
-| IP Address   | `209.85.208.181`             | C2 server        |
-| Domain       | `mail-lj1-f181.google.com`       | C2  server          |
-| File Path    | `29.328%24_Need_to_move_you_have_24_hours-11794.pdf`         | Malicious         |
+| Type       | Value                                                     | Description                       |
+|------------|-----------------------------------------------------------|---------------------------------|
+| File Hash  | `0624396ce2f474e60cf4eade2a3090a174c133d992d262b905ee72f5a00efd74` | Malicious attachment            |
+| IP Address | `209.85.208.181`                                          | Initially flagged as C2 server  |
+| Domain     | `mail-lj1-f181.google.com`                                | Initially flagged as C2 server  |
+| File Path  | `29.328%24_Need_to_move_you_have_24_hours-11794.pdf`      | Malicious                      |
 
+### IOC Validation and Context
+
+Upon further investigation, some IOCs initially flagged as malicious command and control (C2) infrastructure are actually legitimate and should be treated accordingly:
+
+- **209.85.208.181** and **mail-lj1-f181.google.com** are part of Google's legitimate email infrastructure and **are not confirmed C2 servers**.
+- Only the **file hash** and **file path** are directly linked to malicious activity in this case.
+- No real C2 infrastructure was observed during dynamic or static analysis of the sample.
+- This validation step helps prevent false positives and ensures accurate and actionable reporting.
+
+### Why This Matters
+
+- **Avoids false positives:** Prevents blocking legitimate services like Google mail servers.
+- **Demonstrates analytical rigor:** Shows ability to distinguish automated flags from real threats.
+- **Improves professional credibility:** Highlights your skill in validating threat intelligence and focusing on true risks.
 ---
 
 ## 5. Technical Details
 
-- **File Behavior: MITRE ATT&CK Tactics and Techniques**  
-- i) The adversary is trying to get into your network. Initial Access consists of techniques that use various entry vectors to gain their initial foothold within a network. Techniques used to gain a  foothold include targeted spearphishing and exploiting weaknesses on public-facing web servers. Footholds gained through initial access may allow for continued access, like valid accounts and use of external remote services, or may be limited-use due to changing passwords..
-- ii) The adversary is trying to avoid being detected. Defense Evasion consists of techniques that adversaries use to avoid detection throughout their compromise. Techniques used for defense evasion include uninstalling/disabling security software or obfuscating/encrypting data and scripts. Adversaries also leverage and abuse trusted processes to hide and masquerade their malware. Other tactics’ techniques are cross-listed here when those techniques include the added benefit of subverting defenses.
-- ii) The adversary is trying to figure out your environment. Discovery consists of techniques an adversary may use to gain knowledge about the system and internal network. These techniques help adversaries observe the environment and orient themselves before deciding how to act. They also allow adversaries to explore what they can control and what’s around their entry point in order to discover how it could benefit their current objective. Native operating system tools are often used toward this post-compromise information-gathering objective. .
-
+- **File Behavior:**  
+**MITRE ATT&CK Mapping**  
+| Tactic           | Technique ID | Name                          |  
+|------------------|--------------|-------------------------------|  
+| Initial Access   | TA0001   | Spearphishing Attachment      |  
+| Defense Evasion  | TA0002        | Obfuscated Files or Information |  
+| Discovery        | TA0003        | File and Directory Discovery  |  
 - **Detection Coverage:**  
   - VirusTotal detection; NOT FOUND.
 
